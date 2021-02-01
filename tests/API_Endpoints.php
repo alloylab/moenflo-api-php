@@ -18,8 +18,6 @@ try {
     $location_id = getenv('moen_location_id');
     $mac_address = getenv('moen_mac_address');
 
-    echo $location_id;
-
     $Moen_API = new \MoenFlo\API($username, $password, $moen_user_id);
 
     $Moen_API->set_device_settings($device_id);

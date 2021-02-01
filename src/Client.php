@@ -12,13 +12,13 @@ class Client
             $client = new \GuzzleHttp\Client($header);
             $response = $client->request('POST', $url, ['body' => json_encode($post_data)]);
 
-            if ($response->getStatusCode() == 200) {
+            if ($response->getStatusCode() < 300) {
                 $result = $response->getBody();
             } else {
-                throw new Exception(__FUNCTION__ . ' - invalid reponse from api');
+                throw new \Exception(__FUNCTION__ . ': ' . $response->getStatusCode() . ' - invalid reponse from api');
             }
         } catch (Exception $e) {
-            throw new Exception(__FUNCTION__ . $e);
+            throw new \Exception(__FUNCTION__ . $e);
         }
 
         return $result;
@@ -28,9 +28,15 @@ class Client
     {
         try {
             $client = new \GuzzleHttp\Client($header);
-            $result = $client->request('GET', $url);
+            $response = $client->request('GET', $url);
+
+            if ($response->getStatusCode() < 300) {
+                $result = $response->getBody();
+            } else {
+                throw new \Exception(__FUNCTION__ . ': ' . $response->getStatusCode() . ' - invalid reponse from api');
+            }
         } catch (Exception $e) {
-            throw new Exception(__FUNCTION__ . $e);
+            throw new \Exception(__FUNCTION__ . $e);
         }
 
         return $result;
