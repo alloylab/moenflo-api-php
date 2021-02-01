@@ -95,10 +95,12 @@ class API
     private function moen_header()
     {
         $moen_header = array(
-            'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
-            'Authorization' => $this->moen_token,
-            'User-Agent' => $this->moen_user_agent,
+            'headers' => array(
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+                'Authorization' => $this->moen_token,
+                'User-Agent' => $this->moen_user_agent,
+            ),
         );
 
         return $moen_header;
@@ -107,9 +109,11 @@ class API
     private function moen_auth_header()
     {
         $moen_header = array(
-            'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
-            'User-Agent' => $this->moen_user_agent,
+            'headers' => array(
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+                'User-Agent' => $this->moen_user_agent,
+            ),
         );
 
         return $moen_header;

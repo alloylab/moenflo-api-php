@@ -16,9 +16,6 @@ class Auth
 
     public function check($username, $password)
     {
-        /*
-        ** Moen Token is Stored as ENV Var for 24 hours to minimize API Calls
-        */
         if (getenv('MOEN_TOKEN') != null && getenv('MOEN_TOKEN_EXPIRE') != null) {
             $expire = getenv('MOEN_TOKEN_EXPIRE');
 
@@ -40,15 +37,13 @@ class Auth
             'password' => $password,
         );
 
-        $auth_curl = \MoenFlo\Client::post_auth($auth_url, $this->header, $post_data);
+        $auth_curl = \MoenFlo\Client::post($auth_url, $this->header, $post_data);
 
-        if ($auth_curl != 'SERVER ERROR') {
-            $token = explode('"', explode('{"token":"', $auth_curl)[1])[0];
+        $response = json_decode($auth_curl);
+        $token = $response->token;
+        $expire = $response->timeNow + $response->tokenExpiration;
 
-            $expire = time() + 86400;
-
-            putenv('MOEN_TOKEN=$token');
-            putenv('MOEN_TOKEN_EXPIRE=$expire');
-        }
+        putenv('MOEN_TOKEN=$token');
+        putenv('MOEN_TOKEN_EXPIRE=$expire');
     }
 }

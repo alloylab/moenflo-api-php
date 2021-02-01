@@ -20,12 +20,12 @@ try {
 
     echo $location_id;
 
-    //$Moen_API = new \MoenFlo\API($username, $password, $moen_user_id);
+    $Moen_API = new \MoenFlo\API($username, $password, $moen_user_id);
 
-    //$Moen_API->set_device_settings($device_id);
-    //$Moen_API->alert_override($device_id);
-    //$Moen_API->valve_unit_status($device_id, 'open');
-    //$Moen_API->device_consumption($location_id, $mac_address, '12/1/2020', '12/31/2020');
+    $Moen_API->set_device_settings($device_id);
+    $Moen_API->alert_override($device_id);
+    $Moen_API->valve_unit_status($device_id, 'open');
+    $Moen_API->device_consumption($location_id, $mac_address, '12/1/2020', '12/31/2020');
 } catch (Exception $e) {
     throw new Exception($e);
 }
