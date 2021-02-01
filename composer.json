@@ -1,0 +1,31 @@
+{
+    "name": "alloylab/MoenFlo",
+    "type": "library",
+    "description": "Implementation of MoenFlo API in PHP",
+    "keywords": [
+        "Moen Flo",
+        "API"
+    ],
+    "homepage": "https://git.alloylab.com/open-source/moenflo-api-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Trevor Ferre",
+            "email": "trevor@alloylab.com",
+            "homepage": "https://alloylab.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "nyholm/psr7": "^1.3"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "MoenFlo\\": "src/"
+        }
+    }
+}
