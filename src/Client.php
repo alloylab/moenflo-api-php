@@ -1,8 +1,8 @@
 <?php
 
-use GuzzleHttp\Client;
-
 namespace MoenFlo;
+
+use GuzzleHttp\Client;
 
 class Client
 {
