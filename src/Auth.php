@@ -43,7 +43,7 @@ class Auth
         $token = $response->token;
         $expire = $response->timeNow + $response->tokenExpiration;
 
-        putenv('MOEN_TOKEN=$token');
-        putenv('MOEN_TOKEN_EXPIRE=$expire');
+        putenv("MOEN_TOKEN=$token");
+        putenv("MOEN_TOKEN_EXPIRE=$expire");
     }
 }
