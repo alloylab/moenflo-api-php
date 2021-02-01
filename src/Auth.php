@@ -3,12 +3,14 @@ namespace MoenFlo;
 
 class Auth
 {
+    private $moen_api_v1;
     private $header;
     private $username;
     private $password;
 
     public function __construct($header)
     {
+        $this->moen_api_v1 = 'https://api.meetflo.com/api/v1';
         $this->header = $header;
     }
 
