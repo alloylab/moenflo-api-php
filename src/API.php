@@ -118,4 +118,9 @@ class API
 
         return $moen_header;
     }
+
+    //MOEN API Calls, Need To add
+    //$locations = curl_header('https://api-gw.meetflo.com/api/v2/users/' . $user_id . '?expand=locations', $moen_header);
+    //$location_detail = curl_header('https://api-gw.meetflo.com/api/v2/locations/' . $location_id . '?expand=devices', $moen_header);
+    //$device_detail = curl_header('https://api-gw.meetflo.com/api/v2/devices/' . $device_id, $moen_header);
 }
