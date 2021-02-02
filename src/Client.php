@@ -2,14 +2,14 @@
 
 namespace MoenFlo;
 
-use \GuzzleHttp\Client as \GuzzleHttp\GuzzleClient;
+use \GuzzleHttp\Client as GuzzleClient;
 
 class Client
 {
     public function post($url, $header, $post_data)
     {
         try {
-            $client = new \GuzzleHttp\GuzzleClient($header);
+            $client = new GuzzleClient($header);
             $response = $client->request('POST', $url, ['body' => json_encode($post_data)]);
 
             if ($response->getStatusCode() < 300) {
@@ -27,7 +27,7 @@ class Client
     public function get($url, $header)
     {
         try {
-            $client = new \GuzzleHttp\GuzzleClient($header);
+            $client = new GuzzleClient($header);
             $response = $client->request('GET', $url);
 
             if ($response->getStatusCode() < 300) {
