@@ -6,7 +6,7 @@ use \GuzzleHttp\Client as GuzzleClient;
 
 class Client
 {
-    public function post($url, $header, $post_data)
+    public static function post($url, $header, $post_data)
     {
         try {
             $client = new GuzzleClient($header);
@@ -24,7 +24,7 @@ class Client
         return $result;
     }
 
-    public function get($url, $header)
+    public static function get($url, $header)
     {
         try {
             $client = new GuzzleClient($header);

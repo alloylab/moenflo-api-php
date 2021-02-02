@@ -3,7 +3,7 @@ namespace MoenFlo;
 
 class Device_Defaults
 {
-    public function settings($device_id)
+    public static function settings($device_id)
     {
         $settings = array(
             'device' => array(
