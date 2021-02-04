@@ -1,4 +1,5 @@
 <?php
+
 namespace MoenFlo;
 
 class Device_Defaults
