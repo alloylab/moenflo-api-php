@@ -1,4 +1,5 @@
 <?php
+
 namespace MoenFlo;
 
 class API
@@ -46,7 +47,7 @@ class API
         \MoenFlo\Client::post($url, $header, $device_settings['user']);
     }
 
-    public function alert_override($device_id)
+    public function override_alert($device_id)
     {
         $post_data = array(
             'alarm_suppress_until_event_end' => true
@@ -60,7 +61,7 @@ class API
         return $results;
     }
 
-    public function valve_unit_status($device_id, $status)
+    public function set_valve_status($device_id, $status)
     {
         if ($status == 'open' || $status == 'closed') {
             $post_data = array(
