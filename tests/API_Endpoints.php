@@ -25,8 +25,7 @@ try {
     $Moen_API->set_device_settings($device_id);
     $Moen_API->override_alert($device_id);
     $Moen_API->set_valve_status($device_id, 'open');
-    $Moen_API->set_location_mode($location_id, 'sleep');
-    //$Moen_API->set_location_mode($location_id, 'home');
+    $Moen_API->set_location_mode($location_id, array());
     $Moen_API->device_consumption($location_id, $mac_address, '12/1/2020', '12/31/2020');
 } catch (Exception $e) {
     throw new Exception($e);
