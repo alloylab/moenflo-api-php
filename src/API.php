@@ -83,7 +83,6 @@ class API
     {
         if(empty($post_data)) {
             $post_data = array(
-                'target' => $status,
                 'revertMinutes' => 4320,
                 'revertMode' => 'home',
                 'target' => 'sleep',
