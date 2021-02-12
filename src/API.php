@@ -79,6 +79,24 @@ class API
         }
     }
 
+    public function set_location_mode($location_id, $status)
+    {
+        if ($status == 'home' || $status == 'away' || $status == 'sleep') {
+            $post_data = array(
+                'valve' => array(
+                    'target' => $status
+                ),
+            );
+
+            $url = $this->moen_api_v2 . '/locations/' . $location_id . '/systemMode';
+            $header = $this->moen_header();
+
+            $results = \MoenFlo\Client::post($url, $header, $post_data);
+
+            return $results;
+        }
+    }
+
     public function device_consumption($location_id, $mac_address, $start_date, $end_date)
     {
         //Billing Dates
