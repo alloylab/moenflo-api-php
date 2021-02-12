@@ -83,9 +83,7 @@ class API
     {
         if ($status == 'home' || $status == 'away' || $status == 'sleep') {
             $post_data = array(
-                'valve' => array(
-                    'target' => $status
-                ),
+                'target' => $status
             );
 
             $url = $this->moen_api_v2 . '/locations/' . $location_id . '/systemMode';
