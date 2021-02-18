@@ -18,11 +18,14 @@ try {
     $location_id = getenv('moen_location_id');
     $mac_address = getenv('moen_mac_address');
 
+    sleep(rand(1, 30));
+
     $Moen_API = new \MoenFlo\API($username, $password, $moen_user_id);
 
     $Moen_API->set_device_settings($device_id);
     $Moen_API->override_alert($device_id);
     $Moen_API->set_valve_status($device_id, 'open');
+    $Moen_API->set_location_mode($location_id, array());
     $Moen_API->device_consumption($location_id, $mac_address, '12/1/2020', '12/31/2020');
 } catch (Exception $e) {
     throw new Exception($e);

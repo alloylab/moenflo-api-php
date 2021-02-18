@@ -79,6 +79,24 @@ class API
         }
     }
 
+    public function set_location_mode($location_id, $post_data)
+    {
+        if(empty($post_data)) {
+            $post_data = array(
+                'revertMinutes' => 4320,
+                'revertMode' => 'home',
+                'target' => 'sleep',
+            );
+        }
+        
+        $url = $this->moen_api_v2 . '/locations/' . $location_id . '/systemMode';
+        $header = $this->moen_header();
+
+        $results = \MoenFlo\Client::post($url, $header, $post_data);
+
+        return $results;
+    }
+
     public function device_consumption($location_id, $mac_address, $start_date, $end_date)
     {
         //Billing Dates
