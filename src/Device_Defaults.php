@@ -10,7 +10,7 @@ class Device_Defaults
             'device' => array(
                 'floSense' => array(
                     'userEnabled' => true,
-                    'shutoffLevel' => 3,  // 1 to 5 w/ 5 being less alerts
+                    'shutoffLevel' => 5,  // 1 to 5 w/ 5 being less alerts
                 ),
                 'irrigationType' => 'none',
                 'prvInstallation' => 'none',
